@@ -40,13 +40,21 @@ class GradientGenerator extends Component {
     this.setState({color2Input: event.target.value})
   }
 
-  changeDirection = (value, id) => {
-    this.setState({activeId: id, gradientDirection: value})
+  changeDirection = id => {
+    this.setState({activeId: id})
   }
 
   generateGradient = () => {
-    const {color1Input, color2Input} = this.state
-    this.setState({color1: color1Input, color2: color2Input})
+    const {color1Input, color2Input, activeId} = this.state
+    const direction = gradientDirectionsList.filter(
+      each => each.directionId === activeId,
+    )
+    const {value} = direction[0]
+    this.setState({
+      color1: color1Input,
+      color2: color2Input,
+      gradientDirection: value,
+    })
   }
 
   render() {

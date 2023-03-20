@@ -3,10 +3,10 @@ import {GradientButton, ListItem} from './styledComponents'
 
 const GradientDirectionItem = props => {
   const {details, changeDirection, isActive} = props
-  const {value, displayText, directionId} = details
+  const {displayText, directionId} = details
 
   const buttonClicked = () => {
-    changeDirection(value, directionId)
+    changeDirection(directionId)
   }
 
   return (
